@@ -441,7 +441,7 @@ class ImapMailbox {
 			}
 		}
 		if(!empty($params['charset'])) {
-			$data = iconv(strtoupper($params['charset']), $this->serverEncoding . '//IGNORE', $data);
+            $data = mb_convert_encoding($data, $this->serverEncoding , strtoupper($params['charset']));
 		}
 
 		// attachments
